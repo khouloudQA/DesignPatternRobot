@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.1 on win32)" generated="2026-02-03T09:45:17.233126" rpa="false" schemaversion="5">
+<suite id="s1" name="ST check out" source="C:\Users\KHOULOUD\Desktop\DesignPatternRobot\SauceLabsProject\ST_check_out\ST_check_out.robot">
+<test id="s1-t1" name="Se connecter" line="10">
+<kw name="Ouvrir URL" owner="function">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:17.773331" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>options=add_argument("--incognito")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-03T09:45:17.772803" elapsed="3.888752"/>
+</kw>
+<status status="PASS" start="2026-02-03T09:45:17.771467" elapsed="3.890490"/>
+</kw>
+<kw name="Login User" owner="function">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${champUserName}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-03T09:45:21.664981" elapsed="0.087515"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:21.753558" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>${champUserName}</arg>
+<arg>${userName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:45:21.752872" elapsed="0.391584"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:22.145399" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>${champPassword}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:45:22.144876" elapsed="0.206632"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:22.352281" level="INFO">Clicking element 'id=login-button'.</msg>
+<arg>${login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:45:22.351853" elapsed="0.283357"/>
+</kw>
+<arg>${valid_user}</arg>
+<arg>${passwordGeneral}</arg>
+<status status="PASS" start="2026-02-03T09:45:21.663168" elapsed="0.972575"/>
+</kw>
+<status status="PASS" start="2026-02-03T09:45:17.770053" elapsed="4.866783"/>
+</test>
+<test id="s1-t2" name="Remplir le panier" line="13">
+<kw name="ADD TO CART" owner="ADD_TO_CART_function">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Add_To_CART}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-03T09:45:22.641260" elapsed="0.104281"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:22.747563" level="INFO">Clicking button 'id=add-to-cart-sauce-labs-backpack'.</msg>
+<arg>${Add_To_CART}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:45:22.746627" elapsed="0.255090"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${xpath_nombre_Article}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-03T09:45:23.002429" elapsed="0.043166"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:23.089717" level="INFO">${nombre_articles_Affichés} = 1</msg>
+<var>${nombre_articles_Affichés}</var>
+<arg>${xpath_nombre_Article}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:45:23.045931" elapsed="0.043871"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${nombre_articles_Affichés}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-02-03T09:45:23.090100" elapsed="0.000654"/>
+</kw>
+<status status="PASS" start="2026-02-03T09:45:22.640468" elapsed="0.450428"/>
+</kw>
+<status status="PASS" start="2026-02-03T09:45:22.639021" elapsed="0.452432"/>
+</test>
+<test id="s1-t3" name="Consulter le panier" line="15">
+<kw name="Go to panier" owner="ST_chech_out_function">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:23.094463" level="INFO">Clicking element 'class=shopping_cart_badge'.</msg>
+<arg>${xpath_nombre_Article}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:45:23.094142" elapsed="0.244845"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:23.400220" level="INFO">Element 'class=title' is displayed.</msg>
+<arg>${Page_Title}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-03T09:45:23.339894" elapsed="0.060464"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:23.400962" level="INFO">Clicking element 'id=checkout'.</msg>
+<arg>${Btn_Checkout}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:45:23.400634" elapsed="0.169203"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Checkout_Text}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-03T09:45:23.570288" elapsed="0.038670"/>
+</kw>
+<status status="PASS" start="2026-02-03T09:45:23.093711" elapsed="0.515460"/>
+</kw>
+<status status="PASS" start="2026-02-03T09:45:23.092622" elapsed="0.517284"/>
+</test>
+<test id="s1-t4" name="Checkout" line="17">
+<kw name="Remplir les champs" owner="ST_chech_out_function">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${First_Name}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-03T09:45:23.612588" elapsed="0.044226"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:23.657896" level="INFO">Typing text 'khouloud' into text field 'id=first-name'.</msg>
+<arg>${First_Name}</arg>
+<arg>${Name_one}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:45:23.657163" elapsed="0.283169"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:23.941293" level="INFO">Typing text 'Kadhi' into text field 'id=last-name'.</msg>
+<arg>${Last_Name}</arg>
+<arg>${Name_Two}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:45:23.940827" elapsed="0.230427"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:24.172052" level="INFO">Typing text '2094' into text field 'id=postal-code'.</msg>
+<arg>${Postal_Code}</arg>
+<arg>${Code}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:45:24.171606" elapsed="0.224111"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:24.396426" level="INFO">Clicking element 'id=continue'.</msg>
+<arg>${Btn_Continue}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:45:24.396059" elapsed="0.245110"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:45:24.697498" level="INFO">Element '//*[text()='Checkout: Overview']' is displayed.</msg>
+<arg>${Success_Checkout}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-03T09:45:24.642858" elapsed="0.054835"/>
+</kw>
+<status status="PASS" start="2026-02-03T09:45:23.612181" elapsed="1.085690"/>
+</kw>
+<status status="PASS" start="2026-02-03T09:45:23.611320" elapsed="1.087405"/>
+</test>
+<doc>Code factorisé</doc>
+<meta name="Author">Khouloud</meta>
+<status status="PASS" start="2026-02-03T09:45:17.238388" elapsed="7.462813"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="ST check out" id="s1" pass="4" fail="0" skip="0">ST check out</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

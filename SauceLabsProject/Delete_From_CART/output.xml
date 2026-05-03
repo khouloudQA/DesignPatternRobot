@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.1 on win32)" generated="2026-04-30T15:55:43.204207" rpa="false" schemaversion="5">
+<suite id="s1" name="ST check out" source="C:\Users\KHOULOUD\Desktop\Khouloud\DesignPatternRobot\SauceLabsProject\ST_check_out\ST_check_out.robot">
+<test id="s1-t1" name="Se connecter" line="10">
+<kw name="Ouvrir URL" owner="ST_chech_out_function">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:43.972328" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>options=add_argument("--incognito")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-04-30T15:55:43.971587" elapsed="4.473279"/>
+</kw>
+<status status="PASS" start="2026-04-30T15:55:43.968935" elapsed="4.476588"/>
+</kw>
+<kw name="Login User" owner="function">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${champUserName}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-30T15:55:48.448422" elapsed="0.126718"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:48.577677" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>${champUserName}</arg>
+<arg>${userName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T15:55:48.576155" elapsed="0.401844"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:48.978845" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>${champPassword}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T15:55:48.978361" elapsed="0.210154"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:49.189298" level="INFO">Clicking element 'id=login-button'.</msg>
+<arg>${login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T15:55:49.188850" elapsed="0.407522"/>
+</kw>
+<arg>${valid_user}</arg>
+<arg>${passwordGeneral}</arg>
+<status status="PASS" start="2026-04-30T15:55:48.447050" elapsed="1.149848"/>
+</kw>
+<status status="PASS" start="2026-04-30T15:55:43.967277" elapsed="5.631124"/>
+</test>
+<test id="s1-t2" name="Remplir le panier" line="14">
+<kw name="ADD TO CART" owner="ADD_TO_CART_function">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Add_To_CART}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-30T15:55:49.666688" elapsed="0.122094"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:49.789834" level="INFO">Clicking button 'id=add-to-cart-sauce-labs-backpack'.</msg>
+<arg>${Add_To_CART}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T15:55:49.789289" elapsed="0.281081"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${xpath_nombre_Article}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-30T15:55:50.071105" elapsed="0.054710"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:50.192495" level="INFO">${nombre_articles_Affichés} = 1</msg>
+<var>${nombre_articles_Affichés}</var>
+<arg>${xpath_nombre_Article}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T15:55:50.126238" elapsed="0.066419"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${nombre_articles_Affichés}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-04-30T15:55:50.193282" elapsed="0.001243"/>
+</kw>
+<status status="PASS" start="2026-04-30T15:55:49.665710" elapsed="0.529023"/>
+</kw>
+<status status="PASS" start="2026-04-30T15:55:49.603285" elapsed="0.592056"/>
+</test>
+<test id="s1-t3" name="Consulter le panier" line="17">
+<kw name="Go to panier" owner="ST_chech_out_function">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:50.198115" level="INFO">Clicking element 'class=shopping_cart_badge'.</msg>
+<arg>${xpath_nombre_Article}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T15:55:50.197799" elapsed="0.328378"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:50.612298" level="INFO">Element 'class=title' is displayed.</msg>
+<arg>${Page_Title}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-30T15:55:50.527328" elapsed="0.085250"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:50.613782" level="INFO">Clicking element 'id=checkout'.</msg>
+<arg>${Btn_Checkout}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T15:55:50.613081" elapsed="0.303398"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Checkout_Text}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-30T15:55:50.916948" elapsed="0.067643"/>
+</kw>
+<status status="PASS" start="2026-04-30T15:55:50.197308" elapsed="0.787611"/>
+</kw>
+<status status="PASS" start="2026-04-30T15:55:50.196401" elapsed="0.789244"/>
+</test>
+<test id="s1-t4" name="Checkout" line="20">
+<kw name="Remplir les champs" owner="ST_chech_out_function">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${First_Name}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-30T15:55:50.989431" elapsed="0.066630"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:51.057081" level="INFO">Typing text 'khouloud' into text field 'id=first-name'.</msg>
+<arg>${First_Name}</arg>
+<arg>${Name_one}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T15:55:51.056448" elapsed="0.450018"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:51.507731" level="INFO">Typing text 'Kadhi' into text field 'id=last-name'.</msg>
+<arg>${Last_Name}</arg>
+<arg>${Name_Two}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T15:55:51.507058" elapsed="0.344150"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:51.854334" level="INFO">Typing text '2094' into text field 'id=postal-code'.</msg>
+<arg>${Postal_Code}</arg>
+<arg>${Code}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T15:55:51.851874" elapsed="0.249143"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:52.102365" level="INFO">Clicking element 'id=continue'.</msg>
+<arg>${Btn_Continue}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T15:55:52.101647" elapsed="0.381684"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-04-30T15:55:52.575274" level="INFO">Element '//*[text()='Checkout: Overview']' is displayed.</msg>
+<arg>${Success_Checkout}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-30T15:55:52.484129" elapsed="0.091375"/>
+</kw>
+<status status="PASS" start="2026-04-30T15:55:50.988915" elapsed="1.586833"/>
+</kw>
+<status status="PASS" start="2026-04-30T15:55:50.987561" elapsed="1.588976"/>
+</test>
+<doc>Code factorisé</doc>
+<meta name="Author">Khouloud</meta>
+<status status="PASS" start="2026-04-30T15:55:43.211545" elapsed="9.367215"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="ST check out" id="s1" pass="4" fail="0" skip="0">ST check out</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-04-30T15:55:43.959280" level="ERROR">Error in file 'C:\Users\KHOULOUD\Desktop\Khouloud\DesignPatternRobot\SauceLabsProject\ST_check_out\ST_check_out.robot' on line 6: Resource file '..\STcnx1\Function\function.robot' does not exist.</msg>
+</errors>
+</robot>

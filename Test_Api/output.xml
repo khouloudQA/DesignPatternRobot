@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.1 on win32)" generated="2026-05-01T19:10:29.991786" rpa="false" schemaversion="5">
+<suite id="s1" name="EndToEndTestApi" source="C:\Users\KHOULOUD\Desktop\Khouloud\DesignPatternRobot\Test_Api\EndToEndTestApi.robot">
+<test id="s1-t1" name="Create Pet (POST)" line="15">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-05-01T19:10:30.711050" level="INFO">${payload} = {'id': '12345', 'name': 'Ichek', 'status': 'available'}</msg>
+<var>${payload}</var>
+<arg>id=${PET_ID}</arg>
+<arg>name=${PET_NAME}</arg>
+<arg>status=${PET_STATUS}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-05-01T19:10:30.708374" elapsed="0.002838"/>
+</kw>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2026-05-01T19:10:33.120317" level="INFO">POST Request : url=https://petstore.swagger.io/v2/pet 
+ path_url=/v2/pet 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '55', 'Content-Type': 'application/json'} 
+ body=b'{"id": "12345", "name": "Ichek", "status": "available"}' 
+ </msg>
+<msg time="2026-05-01T19:10:33.120506" level="INFO">POST Response : url=https://petstore.swagger.io/v2/pet 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 01 May 2026 18:10:35 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"id":12345,"name":"Ichek","photoUrls":[],"tags":[],"status":"available"} 
+ </msg>
+<msg time="2026-05-01T19:10:33.120710" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}/pet</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2026-05-01T19:10:30.712413" elapsed="2.408337"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-05-01T19:10:33.122314" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-05-01T19:10:33.121314" elapsed="0.001130"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response.json()['name']}</arg>
+<arg>${PET_NAME}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-01T19:10:33.122972" elapsed="0.001243"/>
+</kw>
+<doc>Créer un nouvel animal via POST avec authentification Basic</doc>
+<status status="PASS" start="2026-05-01T19:10:30.705100" elapsed="2.419580"/>
+</test>
+<test id="s1-t2" name="Get Pet (GET)" line="25">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2026-05-01T19:10:33.131650" level="INFO">${auth} = ['api_key', 'khouloudKadhi # mot de passe']</msg>
+<var>${auth}</var>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2026-05-01T19:10:33.130084" elapsed="0.001658"/>
+</kw>
+<kw name="Create a session">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2026-05-01T19:10:33.136150" level="INFO">${auth} = ['api_key', 'khouloudKadhi # mot de passe']</msg>
+<var>${auth}</var>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2026-05-01T19:10:33.134632" elapsed="0.001611"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-05-01T19:10:33.137718" level="INFO">Creating Session using : alias=petstore, url=https://petstore.swagger.io/v2, headers={},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x000001B558F01940&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>petstore</arg>
+<arg>${BASE_URL}</arg>
+<arg>auth=${auth}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-05-01T19:10:33.136683" elapsed="0.001824"/>
+</kw>
+<status status="PASS" start="2026-05-01T19:10:33.133158" elapsed="0.005716"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2026-05-01T19:10:35.055614" level="INFO">GET Request : url=https://petstore.swagger.io/v2/pet/12345 
+ path_url=/v2/pet/12345 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-05-01T19:10:35.055912" level="INFO">GET Response : url=https://petstore.swagger.io/v2/pet/12345 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 01 May 2026 18:10:37 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"id":12345,"name":"Ichek","photoUrls":[],"tags":[],"status":"available"} 
+ </msg>
+<msg time="2026-05-01T19:10:35.056262" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}/pet/${PET_ID}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2026-05-01T19:10:33.140080" elapsed="1.916266"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-05-01T19:10:35.059541" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-05-01T19:10:35.057388" elapsed="0.002884"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response.json()['name']}</arg>
+<arg>${PET_NAME}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-01T19:10:35.061272" elapsed="0.003054"/>
+</kw>
+<doc>Récupérer l'animal créé via GET avec authentification Basic</doc>
+<status status="PASS" start="2026-05-01T19:10:33.126414" elapsed="1.939033"/>
+</test>
+<test id="s1-t3" name="Delete Pet (DELETE)" line="32">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2026-05-01T19:10:35.086317" level="INFO">${auth} = ['api_key', 'khouloudKadhi # mot de passe']</msg>
+<var>${auth}</var>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2026-05-01T19:10:35.083773" elapsed="0.002703"/>
+</kw>
+<kw name="Create a session">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2026-05-01T19:10:35.092244" level="INFO">${auth} = ['api_key', 'khouloudKadhi # mot de passe']</msg>
+<var>${auth}</var>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2026-05-01T19:10:35.089381" elapsed="0.003136"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-05-01T19:10:35.096674" level="INFO">Creating Session using : alias=petstore, url=https://petstore.swagger.io/v2, headers={},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x000001B558E3F9D0&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>petstore</arg>
+<arg>${BASE_URL}</arg>
+<arg>auth=${auth}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-05-01T19:10:35.094942" elapsed="0.003049"/>
+</kw>
+<status status="PASS" start="2026-05-01T19:10:35.087919" elapsed="0.010668"/>
+</kw>
+<kw name="DELETE" owner="RequestsLibrary">
+<msg time="2026-05-01T19:10:37.213491" level="INFO">DELETE Request : url=https://petstore.swagger.io/v2/pet/12345 
+ path_url=/v2/pet/12345 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2026-05-01T19:10:37.214746" level="INFO">DELETE Response : url=https://petstore.swagger.io/v2/pet/12345 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 01 May 2026 18:10:38 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"code":200,"type":"unknown","message":"12345"} 
+ </msg>
+<msg time="2026-05-01T19:10:37.215194" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}/pet/${PET_ID}</arg>
+<doc>Sends a DELETE request.</doc>
+<status status="PASS" start="2026-05-01T19:10:35.101322" elapsed="2.113964"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-05-01T19:10:37.218923" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-05-01T19:10:37.216663" elapsed="0.002492"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response.json()['message']}</arg>
+<arg>${PET_ID}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-01T19:10:37.220267" elapsed="0.002336"/>
+</kw>
+<doc>Supprimer l'animal via DELETE avec authentification Basic</doc>
+<status status="PASS" start="2026-05-01T19:10:35.071554" elapsed="2.152254"/>
+</test>
+<test id="s1-t4" name="Get Pet After Deletion (GET)" line="39">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2026-05-01T19:10:37.237104" level="INFO">${auth} = ['api_key', 'khouloudKadhi # mot de passe']</msg>
+<var>${auth}</var>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2026-05-01T19:10:37.234707" elapsed="0.002627"/>
+</kw>
+<kw name="Create a session">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2026-05-01T19:10:37.247980" level="INFO">${auth} = ['api_key', 'khouloudKadhi # mot de passe']</msg>
+<var>${auth}</var>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2026-05-01T19:10:37.241825" elapsed="0.006363"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-05-01T19:10:37.250081" level="INFO">Creating Session using : alias=petstore, url=https://petstore.swagger.io/v2, headers={},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x000001B558E3EE90&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>petstore</arg>
+<arg>${BASE_URL}</arg>
+<arg>auth=${auth}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-05-01T19:10:37.248835" elapsed="0.002089"/>
+</kw>
+<status status="PASS" start="2026-05-01T19:10:37.240195" elapsed="0.011199"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2026-05-01T19:10:39.013566" level="INFO">GET Request : url=https://petstore.swagger.io/v2/pet/12345 
+ path_url=/v2/pet/12345 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-05-01T19:10:39.013901" level="INFO">GET Response : url=https://petstore.swagger.io/v2/pet/12345 
+ status=404, reason=Not Found 
+ headers={'Date': 'Fri, 01 May 2026 18:10:41 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"code":1,"type":"error","message":"Pet not found"} 
+ </msg>
+<msg time="2026-05-01T19:10:39.016552" level="FAIL">HTTPError: 404 Client Error: Not Found for url: https://petstore.swagger.io/v2/pet/12345</msg>
+<var>${response}</var>
+<arg>${BASE_URL}/pet/${PET_ID}</arg>
+<doc>Sends a GET request.</doc>
+<status status="FAIL" start="2026-05-01T19:10:37.253606" elapsed="1.804547">HTTPError: 404 Client Error: Not Found for url: https://petstore.swagger.io/v2/pet/12345</status>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>404</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2026-05-01T19:10:39.059326" elapsed="0.000145"/>
+</kw>
+<doc>Vérifier que l'animal a bien été supprimé après suppression avec authentification Basic</doc>
+<status status="FAIL" start="2026-05-01T19:10:37.231128" elapsed="1.829971">HTTPError: 404 Client Error: Not Found for url: https://petstore.swagger.io/v2/pet/12345</status>
+</test>
+<status status="FAIL" start="2026-05-01T19:10:29.997723" elapsed="9.067588"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="EndToEndTestApi" id="s1" pass="3" fail="1" skip="0">EndToEndTestApi</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

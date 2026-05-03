@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.1 on win32)" generated="2026-04-30T12:58:46.970946" rpa="false" schemaversion="5">
+<suite id="s1" name="Delete From CART" source="C:\Users\KHOULOUD\Desktop\Khouloud\DesignPatternRobot\SauceLabsProject\Delete_From_CART\Delete_From_CART.robot">
+<test id="s1-t1" name="Se connecter" line="8">
+<kw name="Ouvrir URL">
+<msg time="2026-04-30T12:58:47.487532" level="FAIL">No keyword with name 'Ouvrir URL' found.</msg>
+<status status="FAIL" start="2026-04-30T12:58:47.487269" elapsed="0.000448">No keyword with name 'Ouvrir URL' found.</status>
+</kw>
+<kw name="Login User">
+<arg>${valid_user}</arg>
+<arg>${passwordGeneral}</arg>
+<status status="NOT RUN" start="2026-04-30T12:58:47.488960" elapsed="0.000159"/>
+</kw>
+<status status="FAIL" start="2026-04-30T12:58:47.478973" elapsed="0.011229">No keyword with name 'Ouvrir URL' found.</status>
+</test>
+<test id="s1-t2" name="Delete from cart" line="12">
+<kw name="Remove From Cart" owner="Delete_From_CART_function">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<msg time="2026-04-30T12:58:47.502018" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2026-04-30T12:58:47.502830" level="FAIL">No browser is open.</msg>
+<arg>${Remove_Btn}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="FAIL" start="2026-04-30T12:58:47.496761" elapsed="0.022226">No browser is open.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${Remove_Btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-30T12:58:47.519504" elapsed="0.000119"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${Remove_Btn}</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="NOT RUN" start="2026-04-30T12:58:47.520017" elapsed="0.000083"/>
+</kw>
+<status status="FAIL" start="2026-04-30T12:58:47.495851" elapsed="0.024633">No browser is open.</status>
+</kw>
+<status status="FAIL" start="2026-04-30T12:58:47.494134" elapsed="0.027440">No browser is open.</status>
+</test>
+<doc>Code factorisé</doc>
+<meta name="Author">Khouloud</meta>
+<status status="FAIL" start="2026-04-30T12:58:46.974527" elapsed="0.555471"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Delete From CART" id="s1" pass="0" fail="2" skip="0">Delete From CART</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-04-30T12:58:47.474465" level="ERROR">Error in file 'C:\Users\KHOULOUD\Desktop\Khouloud\DesignPatternRobot\SauceLabsProject\Delete_From_CART\Function\Delete_From_CART_function.robot' on line 5: Resource file '..\..\STcnx1\Function\function.robot' does not exist.</msg>
+<msg time="2026-04-30T12:58:47.476213" level="ERROR">Error in file 'C:\Users\KHOULOUD\Desktop\Khouloud\DesignPatternRobot\SauceLabsProject\Delete_From_CART\Delete_From_CART.robot' on line 6: Resource file '..\STcnx1\Function\function.robot' does not exist.</msg>
+</errors>
+</robot>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.1 on win32)" generated="2026-04-30T13:24:02.557839" rpa="false" schemaversion="5">
+<suite id="s1" name="ST-CNX" source="C:\Users\KHOULOUD\Desktop\Khouloud\DesignPatternRobot\SauceLabsProject\ST_cnx1\ST-CNX.robot">
+<test id="s1-t1" name="Se connecter avec invalid user locked" line="9">
+<kw name="Ouvrir URL" owner="function">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-04-30T13:24:03.258699" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>options=add_argument("--incognito")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-04-30T13:24:03.258263" elapsed="3.213019"/>
+</kw>
+<status status="PASS" start="2026-04-30T13:24:03.257290" elapsed="3.214821"/>
+</kw>
+<kw name="Login User" owner="function">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${champUserName}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-30T13:24:06.476022" elapsed="1.406923"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-30T13:24:07.883924" level="INFO">Typing text 'locked_out_user' into text field 'id=user-name'.</msg>
+<arg>${champUserName}</arg>
+<arg>${userName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T13:24:07.883256" elapsed="0.481372"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-30T13:24:08.365278" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>${champPassword}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T13:24:08.364902" elapsed="0.168987"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-30T13:24:08.534718" level="INFO">Clicking element 'id=login-button'.</msg>
+<arg>${login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T13:24:08.534214" elapsed="0.187874"/>
+</kw>
+<arg>${invalid_user_locked}</arg>
+<arg>${passwordGeneral}</arg>
+<status status="PASS" start="2026-04-30T13:24:06.475076" elapsed="2.247240"/>
+</kw>
+<tag>invalid path</tag>
+<status status="PASS" start="2026-04-30T13:24:03.256175" elapsed="5.466823"/>
+</test>
+<test id="s1-t2" name="Se connecter avec Error user" line="14">
+<kw name="Login User" owner="function">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${champUserName}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-30T13:24:08.725887" elapsed="0.045336"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-30T13:24:08.773263" level="INFO">Typing text 'Khouloud' into text field 'id=user-name'.</msg>
+<arg>${champUserName}</arg>
+<arg>${userName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T13:24:08.772080" elapsed="0.332446"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-30T13:24:09.105787" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>${champPassword}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T13:24:09.105043" elapsed="0.344965"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-30T13:24:09.450782" level="INFO">Clicking element 'id=login-button'.</msg>
+<arg>${login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T13:24:09.450313" elapsed="0.269813"/>
+</kw>
+<arg>${Error_user}</arg>
+<arg>${passwordGeneral}</arg>
+<status status="PASS" start="2026-04-30T13:24:08.725314" elapsed="0.994997"/>
+</kw>
+<tag>invalid path</tag>
+<status status="PASS" start="2026-04-30T13:24:08.724300" elapsed="0.996615"/>
+</test>
+<test id="s1-t3" name="Se connecter avec user valid" line="19">
+<kw name="Login User" owner="function">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${champUserName}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-30T13:24:09.723994" elapsed="0.061986"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-30T13:24:09.787324" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>${champUserName}</arg>
+<arg>${userName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T13:24:09.786497" elapsed="0.403829"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-30T13:24:10.191176" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>${champPassword}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T13:24:10.190661" elapsed="0.212385"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-30T13:24:10.403692" level="INFO">Clicking element 'id=login-button'.</msg>
+<arg>${login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-30T13:24:10.403335" elapsed="0.294365"/>
+</kw>
+<arg>${valid_user}</arg>
+<arg>${passwordGeneral}</arg>
+<status status="PASS" start="2026-04-30T13:24:09.723410" elapsed="0.974625"/>
+</kw>
+<tag>valid path</tag>
+<status status="PASS" start="2026-04-30T13:24:09.722667" elapsed="0.976249"/>
+</test>
+<doc>Code factorisé</doc>
+<meta name="Author">Khouloud</meta>
+<status status="PASS" start="2026-04-30T13:24:02.562898" elapsed="8.139899"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">invalid path</stat>
+<stat pass="1" fail="0" skip="0">valid path</stat>
+</tag>
+<suite>
+<stat name="ST-CNX" id="s1" pass="3" fail="0" skip="0">ST-CNX</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

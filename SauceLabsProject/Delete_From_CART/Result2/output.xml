@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.1 on win32)" generated="2026-02-03T09:47:48.487792" rpa="false" schemaversion="5">
+<suite id="s1" name="Delete From CART" source="C:\Users\KHOULOUD\Desktop\DesignPatternRobot\SauceLabsProject\Delete_From_CART\Delete_From_CART.robot">
+<test id="s1-t1" name="Se connecter" line="8">
+<kw name="Ouvrir URL" owner="function">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:47:49.009504" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>options=add_argument("--incognito")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-03T09:47:49.009045" elapsed="7.670960"/>
+</kw>
+<status status="PASS" start="2026-02-03T09:47:49.007666" elapsed="7.672836"/>
+</kw>
+<kw name="Login User" owner="function">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${champUserName}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-03T09:47:56.682879" elapsed="0.062805"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:47:56.746390" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>${champUserName}</arg>
+<arg>${userName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:47:56.745991" elapsed="0.421340"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:47:57.168058" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>${champPassword}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:47:57.167631" elapsed="0.275814"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:47:57.445572" level="INFO">Clicking element 'id=login-button'.</msg>
+<arg>${login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-03T09:47:57.444371" elapsed="0.323074"/>
+</kw>
+<arg>${valid_user}</arg>
+<arg>${passwordGeneral}</arg>
+<status status="PASS" start="2026-02-03T09:47:56.681784" elapsed="1.086010"/>
+</kw>
+<status status="PASS" start="2026-02-03T09:47:49.006366" elapsed="8.763009"/>
+</test>
+<test id="s1-t2" name="Delete from cart" line="12">
+<kw name="Remove From Cart" owner="Delete_From_CART_function">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<msg time="2026-02-03T09:48:03.058835" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-03T09:48:03.059140" level="FAIL">Element with locator 'id=remove-sauce-labs-backpack' not found.</msg>
+<arg>${Remove_Btn}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="FAIL" start="2026-02-03T09:47:57.773652" elapsed="5.293078">Element with locator 'id=remove-sauce-labs-backpack' not found.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${Remove_Btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-02-03T09:48:03.067066" elapsed="0.000056"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${Remove_Btn}</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="NOT RUN" start="2026-02-03T09:48:03.067258" elapsed="0.000032"/>
+</kw>
+<status status="FAIL" start="2026-02-03T09:47:57.773082" elapsed="5.294384">Element with locator 'id=remove-sauce-labs-backpack' not found.</status>
+</kw>
+<status status="FAIL" start="2026-02-03T09:47:57.771755" elapsed="5.296371">Element with locator 'id=remove-sauce-labs-backpack' not found.</status>
+</test>
+<doc>Code factorisé</doc>
+<meta name="Author">Khouloud</meta>
+<status status="FAIL" start="2026-02-03T09:47:48.491042" elapsed="14.578585"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Delete From CART" id="s1" pass="1" fail="1" skip="0">Delete From CART</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

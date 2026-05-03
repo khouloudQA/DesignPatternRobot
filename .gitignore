@@ -1,0 +1,10 @@
+# Robot Framework outputs
+log.html
+output.xml
+report.html
+# Python
+__pycache__/
+*.pyc
+# VS Code
+.vscode/
+.idea/
